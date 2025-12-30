@@ -3,192 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Science Insights | 科普文章集锦</title>
+    <title>TED Science Collection | 排序功能版</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;500;700&display=swap');
 
         :root {
-            --bg: #0d1117;
-            --card-bg: #161b22;
-            --accent: #58a6ff;
-            --text-main: #8b949e;
-            --text-bright: #f0f6fc;
-            --border: #30363d;
+            --glass-bg: rgba(255, 255, 255, 0.45);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --accent: #4a90e2;
+            --text-dark: #2c3e50;
+            --text-muted: #5d6d7e;
         }
 
         body {
-            background-color: var(--bg);
-            color: var(--text-main);
-            font-family: 'Inter', 'Noto Sans SC', sans-serif;
             margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Plus Jakarta Sans', 'Noto Sans SC', sans-serif;
+            background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 50%, #d4fc79 100%);
+            background-attachment: fixed;
         }
 
-        .container {
-            max-width: 1100px;
-            width: 90%;
-            padding: 80px 0;
+        .glass-container {
+            width: 95%;
+            max-width: 700px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
+            border-radius: 40px;
+            padding: 60px 40px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+        }
+
+        /* 顶部布局：标题与按钮对齐 */
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
         }
 
         header {
-            text-align: center;
-            margin-bottom: 80px;
+            border-left: 6px solid var(--accent);
+            padding-left: 20px;
         }
 
-        h1 {
-            font-size: 3rem;
-            color: var(--text-bright);
-            margin: 0;
-            letter-spacing: -1.5px;
-            background: linear-gradient(180deg, #fff 0%, #8b949e 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        h1 { font-size: 2.2rem; color: var(--text-dark); margin: 0; letter-spacing: -1px; }
+        header p { color: var(--text-muted); margin-top: 8px; font-size: 1rem; }
 
-        header p {
-            font-size: 1.1rem;
-            color: #484f58;
-            margin-top: 15px;
-            letter-spacing: 2px;
-        }
-
-        /* 文章网格布局 */
-        .article-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            overflow: hidden;
+        /* 纯圆形排序按钮 */
+        .sort-trigger {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-dark);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.05);
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
-        /* 封面图效果 */
-        .card-image {
-            width: 100%;
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-            filter: grayscale(20%);
-            transition: 0.4s;
-        }
-
-        .card:hover .card-image {
-            filter: grayscale(0%);
-            transform: scale(1.05);
-        }
-
-        .card-content {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .category {
-            font-size: 0.7rem;
-            text-transform: uppercase;
+        .sort-trigger:hover {
+            background: white;
             color: var(--accent);
-            font-weight: 700;
-            margin-bottom: 12px;
-            letter-spacing: 1px;
+            transform: rotate(180deg);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
         }
 
-        .card h3 {
-            font-size: 1.35rem;
-            margin: 0 0 12px 0;
-            color: var(--text-bright);
-            line-height: 1.3;
-        }
+        .sort-trigger:active { transform: scale(0.9) rotate(180deg); }
 
-        .card p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #768390;
-        }
+        .article-list { display: flex; flex-direction: column; }
 
-        .card-footer {
-            margin-top: auto;
-            padding-top: 20px;
-            font-size: 0.8rem;
-            color: #484f58;
+        .article-card {
+            background: rgba(255, 255, 255, 0.3);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 25px;
             display: flex;
-            justify-content: space-between;
+            align-items: center;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 1;
         }
 
-        footer {
-            margin-top: auto;
-            padding: 60px;
-            color: #30363d;
-            font-size: 0.8rem;
-            text-align: center;
+        .article-card:hover {
+            background: rgba(255, 255, 255, 0.8);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
         }
+
+        .icon-circle {
+            width: 50px; height: 50px; background: white; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin-right: 20px; font-size: 1.4rem; flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .card-body { flex: 1; }
+        .vol-label {
+            font-size: 0.7rem; font-weight: 800; background: #e0e7ff; color: #4f46e5;
+            padding: 4px 12px; border-radius: 50px; margin-bottom: 10px; display: inline-block;
+        }
+
+        .article-card h3 { margin: 0; font-size: 1.2rem; color: var(--text-dark); line-height: 1.4; }
+        .article-card p { margin: 6px 0 0 0; font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; }
+
+        .arrow { font-size: 1.2rem; color: #cbd5e0; margin-left: 15px; transition: 0.3s; }
+        .article-card:hover .arrow { color: var(--accent); transform: translateX(5px); }
+
+        footer { margin-top: 40px; text-align: center; font-size: 0.8rem; color: var(--text-muted); opacity: 0.8; }
 
         @media (max-width: 600px) {
-            h1 { font-size: 2.2rem; }
-            .container { padding: 40px 0; }
+            .glass-container { padding: 40px 20px; }
+            h1 { font-size: 1.8rem; }
+            .icon-circle { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1>Science Insights</h1>
-            <p>探索科学之美 · 精选深度解析</p>
-        </header>
+    <div class="glass-container">
+        <div class="header-flex">
+            <header>
+                <h1>TED Collection</h1>
+                <p>探索未知的奥秘</p>
+            </header>
+            <div class="sort-trigger" onclick="toggleSort()" title="切换排序顺序">
+                <i data-lucide="arrow-up-down" size="22"></i>
+            </div>
+        </div>
 
-        <div class="article-grid">
+        <div class="article-list" id="articleList">
             
-            <a href="milk-science.html" class="card">
-                <div class="card-image" style="background-image: url('https://ed.ted.com/assets/lessons/share_images/1110-3882f0c766432b4b3997235b3e2185a4.jpg');"></div>
-                <div class="card-content">
-                    <span class="category">Environment & Nutrition</span>
-                    <h3>Which type of milk is best for you?</h3>
-                    <p>全方位对比牛奶与植物奶：从营养成分到背后的环境代价，哪一个才是最优选？</p>
-                    <div class="card-footer">
-                        <span>VOL. 01</span>
-                        <span>READ MORE →</span>
-                    </div>
+            <a href="https://ypf520.github.io/TED/ted3.html" class="article-card" data-order="3">
+                <div class="icon-circle">🧠</div>
+                <div class="card-body">
+                    <span class="vol-label" style="background: #fae8ff; color: #c026d3;">VOL. 03</span>
+                    <h3>The Science of Sleep</h3>
+                    <p>为什么我们需要睡眠？揭秘大脑的深夜修复机制与熬夜的真实代价。</p>
                 </div>
+                <div class="arrow">→</div>
             </a>
 
-            <a href="#" class="card">
-                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800');"></div>
-                <div class="card-content">
-                    <span class="category">Cosmology</span>
+            <a href="https://ypf520.github.io/TED/ted2.html" class="article-card" data-order="2">
+                <div class="icon-circle">🌌</div>
+                <div class="card-body">
+                    <span class="vol-label" style="background: #fef3c7; color: #d97706;">VOL. 02</span>
                     <h3>How big is the Universe?</h3>
-                    <p>从地球到可观测宇宙的边缘，这趟跨越光年的旅程将挑战你对“空间”的认知。</p>
-                    <div class="card-footer">
-                        <span>VOL. 02</span>
-                        <span>COMING SOON</span>
-                    </div>
+                    <p>跨越光年的旅程，从原子到可观测宇宙的终极边界探索。</p>
                 </div>
+                <div class="arrow">→</div>
+            </a>
+
+            <a href="https://ypf520.github.io/TED/ted1.html" class="article-card" data-order="1">
+                <div class="icon-circle">🥛</div>
+                <div class="card-body">
+                    <span class="vol-label">VOL. 01</span>
+                    <h3>Which type of milk is best for you?</h3>
+                    <p>牛奶 vs 植物奶？营养成分、环境足迹与生产工艺的全方位横评。</p>
+                </div>
+                <div class="arrow">→</div>
             </a>
 
         </div>
+
+        <footer>
+            © 2025 YPF520.GITHUB.IO • POWERED BY GITHUB PAGES
+        </footer>
     </div>
 
-    <footer>
-        &copy; 2025 科普视界 Archive • Stay Curious
-    </footer>
+    <script>
+        // 初始化图标库
+        lucide.createIcons();
 
+        let descending = true; // 默认新文章在上
+
+        function toggleSort() {
+            const list = document.getElementById('articleList');
+            const cards = Array.from(list.getElementsByClassName('article-card'));
+            
+            descending = !descending;
+
+            // 根据 data-order 排序
+            cards.sort((a, b) => {
+                const orderA = parseInt(a.getAttribute('data-order'));
+                const orderB = parseInt(b.getAttribute('data-order'));
+                return descending ? orderB - orderA : orderA - orderB;
+            });
+
+            // 重新插入 DOM（带有一个简单的平滑过渡感）
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                setTimeout(() => {
+                    list.appendChild(card);
+                    card.style.opacity = '1';
+                }, 100);
+            });
+        }
+    </script>
 </body>
 </html>
