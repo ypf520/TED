@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- saved from url=(0098)file:///G:/%E6%A1%8C%E9%9D%A2/%E6%96%B0%E5%BB%BA%20%E6%96%87%E6%9C%AC%E6%96%87%E6%A1%A3%20(4).html -->
-<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Milk Science Transcript | TED-Ed</title>
-    <script src="./Milk Science Transcript _ TED-Ed_files/lucide@latest"></script>
+    <title>Milk Science Full Transcript | TED-Ed</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;500;700&display=swap');
 
@@ -14,14 +14,13 @@
             --accent: #4a90e2;
             --text-dark: #1a202c;
             --text-muted: #4a5568;
-            --highlight: #2563eb; /* 强化数据高亮色 */
+            --highlight: #2563eb; 
         }
 
         body {
             margin: 0;
             min-height: 100vh;
             font-family: 'Plus Jakarta Sans', 'Noto Sans SC', sans-serif;
-            /* 延续导航页的彩色渐变背景 */
             background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 50%, #d4fc79 100%);
             background-attachment: fixed;
             display: flex;
@@ -31,59 +30,41 @@
             line-height: 1.6;
         }
 
-        /* 顶部导航条 */
-        .top-nav {
-            width: 100%;
-            max-width: 850px;
-            padding: 20px;
+        .breadcrumb {
             display: flex;
             align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            gap: 8px;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
         }
 
-        .back-btn {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            color: var(--text-dark);
-            transition: all 0.3s ease;
+        .breadcrumb a {
+            color: var(--text-muted);
             text-decoration: none;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
 
-        .back-btn:hover {
-            background: white;
-            transform: translateX(-5px);
-            color: var(--accent);
-        }
+        .breadcrumb a:hover { color: var(--accent); }
 
-        /* 文章主体容器 */
         .glass-article {
             width: 90%;
-            max-width: 800px;
+            max-width: 850px;
             background: var(--glass-bg);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
             border: 1px solid var(--glass-border);
             border-radius: 40px;
-            padding: 60px;
+            padding: 50px;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.05);
-            margin-bottom: 60px;
+            margin: 40px 0;
         }
 
         header {
-            margin-bottom: 50px;
-            text-align: left;
+            margin-bottom: 40px;
             border-left: 6px solid var(--accent);
             padding-left: 25px;
         }
@@ -99,167 +80,251 @@
         }
 
         h1 {
-            font-size: 2.4rem;
-            line-height: 1.2;
+            font-size: 2.2rem;
             margin: 0;
-            letter-spacing: -1px;
             color: var(--text-dark);
         }
 
         .author {
-            margin-top: 15px;
-            font-size: 1rem;
+            margin-top: 10px;
+            font-size: 0.95rem;
             color: var(--text-muted);
-            font-weight: 500;
         }
 
-        /* 字幕对齐区块 */
         .transcript-container {
-            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
         .transcript-pair {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 25px;
-            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 15px;
+            padding: 20px;
             border: 1px solid rgba(255, 255, 255, 0.3);
             transition: all 0.3s ease;
         }
 
         .transcript-pair:hover {
             background: rgba(255, 255, 255, 0.4);
-            transform: translateY(-2px);
-            border-color: var(--glass-border);
         }
 
         .en {
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             font-weight: 600;
             color: #1e293b;
-            margin-bottom: 12px;
             display: block;
+            margin-bottom: 8px;
         }
 
         .zh {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--text-muted);
-            font-weight: 400;
             display: block;
             border-top: 1px solid rgba(0,0,0,0.05);
-            padding-top: 12px;
-            line-height: 1.8;
+            padding-top: 8px;
         }
 
-        /* 数据高亮样式 */
         .highlight-data {
             color: var(--highlight);
             font-weight: 700;
-            text-decoration: underline rgba(37, 99, 235, 0.2);
         }
 
         footer {
-            text-align: center;
-            padding-bottom: 60px;
+            padding-bottom: 40px;
             font-size: 0.8rem;
             color: var(--text-muted);
-            letter-spacing: 1px;
         }
 
         @media (max-width: 640px) {
-            .glass-article { padding: 40px 20px; }
-            h1 { font-size: 1.8rem; }
-            .en { font-size: 1.05rem; }
+            .glass-article { padding: 30px 20px; }
+            h1 { font-size: 1.6rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="top-nav">
-        <a href="file:///G:/%E6%A1%8C%E9%9D%A2/index.html" class="back-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-left" class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"></path></svg>
-        </a>
-    </div>
-
     <article class="glass-article">
+        <nav class="breadcrumb">
+            <a href="https://ypf520.github.io/TED/">
+                <i data-lucide="arrow-left" style="width: 16px; height: 16px;"></i>
+                TED-Ed Archive
+            </a>
+            <span style="color: rgba(0,0,0,0.2);">/</span>
+            <span style="color: var(--accent);">Milk Science</span>
+        </nav>
+
         <header>
-            <span class="category-tag">TED-Ed Science Transcript</span>
+            <span class="category-tag">Biology & Environment</span>
             <h1>Which type of milk is best for you?</h1>
-            <div class="author">Jonathan J. O'Sullivan &amp; Grace E. Cunningham</div>
+            <div class="author">Jonathan J. O'Sullivan & Grace E. Cunningham</div>
         </header>
 
         <div class="transcript-container">
-            
             <div class="transcript-pair">
-                <span class="en">If you go to the store in search of milk, there are a dizzying number of products to choose from. There’s dairy milk, but also plant-based products.</span>
-                <span class="zh">如果你去商店寻找奶，琳琅满目的产品多到让人眼花缭乱。除了牛奶，还有各种植物基产品。</span>
+                <span class="en">If you go to the store in search of milk, there are a dizzying number of products to choose from.</span>
+                <span class="zh">如果你去商店寻找奶类产品，琳琅满目的选择多到让人眼花缭乱。</span>
             </div>
-
+            <div class="transcript-pair">
+                <span class="en">There’s dairy milk, but also plant-based products.</span>
+                <span class="zh">除了动物牛奶，还有各种植物基产品。</span>
+            </div>
             <div class="transcript-pair">
                 <span class="en">To turn a plant into something resembling milk, it must be either soaked, drained, rinsed, and milled into a thick paste, or dried, and milled into flour.</span>
                 <span class="zh">要把植物变成类似奶的状态，必须经过浸泡、沥干、冲洗并磨成浓稠的浆糊，或者将其干燥后磨成粉。</span>
             </div>
-
             <div class="transcript-pair">
-                <span class="en">The plant paste or flour is then fortified with vitamins and minerals, flavoured, and diluted with water. The result is a barrage of options that share many of the qualities of animal milk.</span>
-                <span class="zh">接着，在植物浆或植物粉中强化维生素和矿物质，调味并用水稀释。其结果是产生了一系列具有动物奶特性的替代选择。</span>
+                <span class="en">The plant paste or flour is then fortified with vitamins and minerals, flavoured, and diluted with water.</span>
+                <span class="zh">接着，在植物浆或植物粉中强化维生素和矿物质，调味并用水稀释。</span>
             </div>
-
+            <div class="transcript-pair">
+                <span class="en">The result is a barrage of options that share many of the qualities of animal milk.</span>
+                <span class="zh">其结果是产生了一系列具有动物奶特性的替代选择。</span>
+            </div>
             <div class="transcript-pair">
                 <span class="en">So which milk is actually best for you? Let’s dive into some of the most popular milks: dairy, almond, soy, or oat?</span>
                 <span class="zh">那么，究竟哪种奶对你最好？让我们深入研究最受欢迎的几种奶：牛奶、杏仁奶、豆奶或燕麦奶？</span>
             </div>
 
             <div class="transcript-pair">
-                <span class="en">A <span class="highlight-data">250 ml</span> glass of cow’s milk contains <span class="highlight-data">8 grams</span> of protein, <span class="highlight-data">12 grams</span> of carbohydrates, and <span class="highlight-data">2 to 8 grams</span> of fat. That’s approximately 15% the daily protein an average adult needs.</span>
-                <span class="zh">一杯 250 毫升的牛奶含有 8 克蛋白质、12 克碳水化合物和 2 到 8 克脂肪。这大约是成人每日所需蛋白质的 15%。</span>
+                <span class="en">A <span class="highlight-data">250 ml</span> glass of cow’s milk contains <span class="highlight-data">8 grams</span> of protein, <span class="highlight-data">12 grams</span> of carbohydrates, and <span class="highlight-data">2 to 8 grams</span> of fat depending on if it’s skim, reduced fat, or whole.</span>
+                <span class="zh">一杯 250 毫升的牛奶含有 8 克蛋白质、12 克碳水化合物和 2 到 8 克脂肪，具体取决于它是脱脂、低脂还是全脂奶。</span>
+            </div>
+            <div class="transcript-pair">
+                <span class="en">That’s approximately <span class="highlight-data">15%</span> the daily protein an average adult needs, roughly <span class="highlight-data">10%</span> the carbohydrates and <span class="highlight-data">2 to 15%</span> the fat.</span>
+                <span class="zh">这大约占成人每日所需蛋白质的 15%，碳水化合物的 10% 以及脂肪的 2% 到 15%。</span>
+            </div>
+            <div class="transcript-pair">
+                <span class="en">Most plant-based milks have less carbohydrates than dairy milk.</span>
+                <span class="zh">大多数植物奶的碳水化合物含量低于牛奶。</span>
+            </div>
+            <div class="transcript-pair">
+                <span class="en">They also have less fat, but more of what’s often called “good fats.”</span>
+                <span class="zh">脂肪也更少，但含有更多所谓的“优质脂肪”。</span>
+            </div>
+            <div class="transcript-pair">
+                <span class="en">Meanwhile, the healthy nutrients vitamin D and calcium found in dairy milk don’t occur naturally in most plant-based milks.</span>
+                <span class="zh">同时，牛奶中含有的健康营养素维生素 D 和钙在大多数植物奶中并非天然存在。</span>
+            </div>
+            <div class="transcript-pair">
+                <span class="en">Looking more closely at our plant-based milks, both almond and oat are low in protein compared to dairy.</span>
+                <span class="zh">仔细观察植物奶，杏仁奶和燕麦奶的蛋白质含量都低于牛奶。</span>
+            </div>
+            <div class="transcript-pair">
+                <span class="en">But while almond milk has the least nutrients of the four, oat milk is full of <span class="highlight-data">beta-glucans</span>, a healthy type of fibre.</span>
+                <span class="zh">虽然杏仁奶是四种奶中营养最少的，但燕麦奶富含 β-葡聚糖，这是一种健康的纤维。</span>
+            </div>
+            <div class="transcript-pair">
+                <span class="en">It also has a lot of carbohydrates compared to other plant milks — sometimes as much as dairy milk.</span>
+                <span class="zh">与其他植物奶相比，它的碳水化合物含量也较高，有时甚至与牛奶相当。</span>
+            </div>
+            <div class="transcript-pair">
+                <span class="en">Soy milk, meanwhile, has as much protein as cow’s milk and is also a great source of potassium.</span>
+                <span class="zh">同时，豆奶的蛋白质含量与牛奶相当，也是钾的极好来源。</span>
+            </div>
+            <div class="transcript-pair">
+                <span class="en">Soybeans contain isoflavone, which people used to think might trigger hormonal imbalances by mimicking the function of estrogen.</span>
+                <span class="zh">大豆含有异黄酮，人们过去认为它可能通过模拟雌激素的功能引发激素失衡。</span>
+            </div>
+            <div class="transcript-pair">
+                <span class="en">But ultimately, soy milk contains very small amounts of isoflavones, which have a much weaker effect on our bodies than estrogen.</span>
+                <span class="zh">但最终研究表明，豆奶中的异黄酮含量极低，对人体的影响远弱于雌激素。</span>
             </div>
 
             <div class="transcript-pair">
-                <span class="en">Most plant-based milks have less carbohydrates than dairy milk. They also have less fat, but more of what’s often called “good fats.”</span>
-                <span class="zh">大多数植物奶的碳水化合物含量低于牛奶。脂肪也更少，但含有更多所谓的“优质脂肪”。</span>
+                <span class="en">Depending on individual circumstances, one of these milks may be the clear winner.</span>
+                <span class="zh">根据个人情况，其中一种奶可能会成为明显的胜出者。</span>
+            </div>
+            <div class="transcript-pair">
+                <span class="en">If you’re lactose intolerant, then the plant-based milks pull ahead, while if you’re allergic to nuts, almond milk is out.</span>
+                <span class="zh">如果你有乳糖不耐受，植物奶就更胜一筹；如果你对坚果过敏，杏仁奶就被排除在外。</span>
+            </div>
+            <div class="transcript-pair">
+                <span class="en">For people who don’t have access to a wide and varied diet, dairy milk can be the most efficient way to get these nutrients.</span>
+                <span class="zh">对于无法获得多样化饮食的人来说，牛奶是获取这些营养素最有效的方式。</span>
+            </div>
+            <div class="transcript-pair">
+                <span class="en">But all else being equal, any one of these four milks is nutritious enough to be part of a balanced diet.</span>
+                <span class="zh">但在其他条件相同的情况下，这四种奶中的任何一种都足够营养，可以作为均衡饮食的一部分。</span>
+            </div>
+            <div class="transcript-pair">
+                <span class="en">That’s why for many people, the milk that’s best for you is actually the milk that’s best for the planet.</span>
+                <span class="zh">这就是为什么对许多人来说，最适合你的奶实际上是对地球最好的奶。</span>
             </div>
 
             <div class="transcript-pair">
-                <span class="en">Looking more closely at our plant-based milks, both almond and oat are low in protein compared to dairy. But oat milk is full of <span class="highlight-data">beta-glucans</span>, a healthy type of fibre.</span>
-                <span class="zh">仔细观察植物奶，杏仁奶和燕麦奶的蛋白质含量都低于牛奶。但燕麦奶富含β-葡聚糖，这是一种健康的纤维。</span>
+                <span class="en">So which uses the fewest resources and produces the least pollution?</span>
+                <span class="zh">那么，哪种奶消耗的资源最少、产生的污染最低呢？</span>
             </div>
-
-            <div class="transcript-pair">
-                <span class="en">Soy milk, meanwhile, has as much protein as cow’s milk and is also a great source of potassium. Soybeans contain isoflavone, which we now know has a much weaker effect on our bodies than estrogen.</span>
-                <span class="zh">豆奶的蛋白质含量与牛奶相当，也是钾的极好来源。大豆含有异黄酮，我们现在知道它对人体的影响远弱于雌激素。</span>
-            </div>
-
             <div class="transcript-pair">
                 <span class="en">It takes almost <span class="highlight-data">4 square kilometers</span> to produce just one glass of cow’s milk, land use that drives deforestation and habitat destruction.</span>
-                <span class="zh">生产一小杯牛奶需要占用近 4 平方公里的土地，这种土地使用导致了森林砍伐和栖息地破坏。</span>
+                <span class="zh">生产一小杯牛奶需要占用近 4 平方公里的土地，这种土地使用会导致森林砍伐和栖息地破坏。</span>
             </div>
-
             <div class="transcript-pair">
-                <span class="en">Dairy milk uses the most water — about <span class="highlight-data">120 liters</span> per glass. Almonds take second place at more than <span class="highlight-data">70 liters</span>. Soy and oats only require about <span class="highlight-data">5 to 10 liters</span>.</span>
-                <span class="zh">牛奶耗水最多，每杯约 120 升。杏仁奶位居第二，耗水超过 70 升。而豆奶和燕麦奶仅需约 5 到 10 升。</span>
+                <span class="en">Most of that is land the cows live on, and some is used to grow their feed. Many cows eat soy beans and oats.</span>
+                <span class="zh">其中大部分是奶牛居住的土地，还有一部分用于种植饲料；许多奶牛吃大豆和燕麦。</span>
             </div>
-
             <div class="transcript-pair">
-                <span class="en">Overall, each glass of dairy milk contributes over half a kilogram of greenhouse gas emissions, about three times more than plant-based milks.</span>
-                <span class="zh">总的来说，每杯牛奶产生的温室气体排放超过半公斤，约为植物奶的三倍。</span>
+                <span class="en">It takes much less land to grow the oats or soybeans for milk than it does to feed a dairy cow — only about a quarter square kilometer per glass.</span>
+                <span class="zh">种植用于制奶的燕麦或大豆所需的土地远少于喂养奶牛所需的土地——每杯奶仅需约 0.25 平方公里。</span>
             </div>
-
             <div class="transcript-pair">
-                <span class="en">In terms of the health of our planet, there’s a strong case for choosing plant-based milks, particularly oat or soy milk.</span>
-                <span class="zh">从地球健康的角度来看，选择植物奶（尤其是燕麦奶或豆奶）的理由非常充分。</span>
+                <span class="en">Almond milk has similar land use. But where that land is also matters.</span>
+                <span class="zh">杏仁奶的土地使用量与之相似。但土地所在的位置也很重要。</span>
             </div>
-
+            <div class="transcript-pair">
+                <span class="en">Soybean farms are a major driver of deforestation, while oat and almond farms are n’t.</span>
+                <span class="zh">大豆农场是森林砍伐的主要驱动力，而燕麦和杏仁农场则不是。</span>
+            </div>
+            <div class="transcript-pair">
+                <span class="en">Making milk uses water every step of the way, but it’s the farming stage where big differences emerge.</span>
+                <span class="zh">制奶的每一步都要消耗水，但在种植/养殖阶段出现了巨大的差异。</span>
+            </div>
+            <div class="transcript-pair">
+                <span class="en">Dairy milk uses the most water — about <span class="highlight-data">120 liters</span> per glass, mostly to water cows and grow their food.</span>
+                <span class="zh">牛奶耗水最多，每杯约 120 升，主要用于给奶牛饮用和种植饲料。</span>
+            </div>
+            <div class="transcript-pair">
+                <span class="en">Almonds take second place, at more than <span class="highlight-data">70 liters</span> of water per glass.</span>
+                <span class="zh">杏仁奶位居第二，每杯耗水超过 70 升。</span>
+            </div>
+            <div class="transcript-pair">
+                <span class="en">Most of that water is used to grow almond trees, which take years of watering before they start producing almonds.</span>
+                <span class="zh">这些水大部分用于种植杏仁树，杏仁树需要多年的浇灌才能开始结果。</span>
+            </div>
+            <div class="transcript-pair">
+                <span class="en">The trees must be watered consistently, or they die, while many other crops can be left fallow and still produce later.</span>
+                <span class="zh">杏仁树必须持续浇水，否则会枯死；而许多其他作物可以休耕并在以后继续产出。</span>
+            </div>
+            <div class="transcript-pair">
+                <span class="en">All told, soy and oats require less water to grow: only about <span class="highlight-data">5 to 10 liters</span> per glass of milk.</span>
+                <span class="zh">总的来说，大豆和燕麦生长所需的水较少：每杯奶仅需约 5 到 10 升。</span>
+            </div>
+            <div class="transcript-pair">
+                <span class="en">Milk production generates some greenhouse gas emissions — about <span class="highlight-data">0.1 to 0.2 kilograms</span> per glass for the plant-based milks.</span>
+                <span class="zh">牛奶生产会产生温室气体排放——植物奶每杯约为 0.1 到 0.2 公斤。</span>
+            </div>
+            <div class="transcript-pair">
+                <span class="en">But for dairy milk, the cows themselves also produce emissions by burping and farting out large quantities of the gas methane.</span>
+                <span class="zh">但对于牛奶来说，奶牛自身也会通过打嗝和排气排出大量的甲烷气体。</span>
+            </div>
+            <div class="transcript-pair">
+                <span class="en">Overall, each glass of dairy milk contributes over <span class="highlight-data">half a kilogram</span> of greenhouse gas emissions.</span>
+                <span class="zh">总的来说，每杯牛奶产生的温室气体排放超过半公斤。</span>
+            </div>
+            <div class="transcript-pair">
+                <span class="en">So while depending on your dietary needs, any one of these milks may be a good fit, in terms of the health of our planet there’s a strong case for choosing plant-based milks, particularly oat or soy milk.</span>
+                <span class="zh">因此，虽然根据你的饮食需求，这些奶中的任何一种都可能适合，但从地球健康的角度来看，选择植物奶（尤其是燕麦奶或豆奶）的理由非常充分。</span>
+            </div>
         </div>
     </article>
 
     <footer>
-        FULL TRANSCRIPT ARCHIVE • 2025 REFINED EDITION
+        FULL TRANSCRIPT • 2025 TED-ED SCIENCE ARCHIVE
     </footer>
 
     <script>
-        // 初始化 Lucide 图标
         lucide.createIcons();
     </script>
-
-</body></html>
+</body>
+</html>
