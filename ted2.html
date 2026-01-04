@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature Restoration Transcript | Tom Chi</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;500;700&display=swap');
+
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --accent: #10b981; 
+            --text-dark: #1a202c;
+            --text-muted: #4a5568;
+            --highlight: #059669; 
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Plus Jakarta Sans', 'Noto Sans SC', sans-serif;
+            background: linear-gradient(120deg, #d4fc79 0%, #96e6a1 50%, #a1c4fd 100%);
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .breadcrumb a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .breadcrumb a:hover { color: var(--accent); }
+
+        .glass-article {
+            width: 90%;
+            max-width: 850px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
+            border-radius: 40px;
+            padding: 50px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.05);
+            margin: 40px 0;
+        }
+
+        header {
+            margin-bottom: 40px;
+            border-left: 6px solid var(--accent);
+            padding-left: 25px;
+        }
+
+        .category-tag {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin: 0;
+            color: var(--text-dark);
+        }
+
+        .author {
+            margin-top: 10px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .transcript-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .transcript-pair {
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .transcript-pair:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .en {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #1e293b;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .zh {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            display: block;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            padding-top: 8px;
+        }
+
+        .highlight-data {
+            color: var(--highlight);
+            font-weight: 700;
+        }
+
+        footer {
+            padding-bottom: 40px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 640px) {
+            .glass-article { padding: 30px 20px; }
+            h1 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <article class="glass-article">
+        <nav class="breadcrumb">
+            <a href="https://ypf520.github.io/TED/">
+                <i data-lucide="arrow-left" style="width: 16px; height: 16px;"></i>
+                TED Archive
+            </a>
+            <span style="color: rgba(0,0,0,0.2);">/</span>
+            <span style="color: var(--accent);">TED2: Nature Restoration</span>
+        </nav>
+
+        <header>
+            <span class="category-tag">Robotics & Sustainability</span>
+            <h1>The Army of Autonomous Robots Restoring Nature</h1>
+            <div class="author">Tom Chi | TED</div>
+        </header>
+
+        <div class="transcript-container">
+            <div class="transcript-pair">
+                <span class="en">So over the last decade, I've been working on resolving a profound paradox.</span>
+                <span class="zh">在过去的十年里，我一直致力于解决一个深刻的悖论。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And, simply stated, it's that if you go and talk with any person, actually -- you could go grab 100 random people off the street -- and you were to go ask them how do they feel about nature, you're going to end up with extremely positive answers, ranging from, you know, 'nature's inspiring,' 'nature is the most beautiful thing that exists.'</span>
+                <span class="zh">简单来说，如果你去和任何人交谈，实际上——你可以从街上随便拉 100 个人——问他们对大自然的感觉如何，你得到的回答都会是非常积极正面的，范围从，你知道的，“大自然充满灵感”，到“大自然是现存最美丽的事物”。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And you'll see it everywhere. They'll put it as the backdrop of their desktop and their phones, like, every little thing, absolutely. Every single person you ask, you're going to get, like, a pretty positive response.</span>
+                <span class="zh">你会发现这种热爱无处不在。他们会把大自然设为电脑桌面和手机背景，绝对是每一件小事都能体现。你问的每一个人，都会给你相当积极的回应。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And even though, if you ask all these individuals how they feel about nature, they're really positive about it, somehow, as a collective civilization, we've come together and we are destroying nature at a planetary scale.</span>
+                <span class="zh">然而，尽管问起每个个体对大自然的感觉时都很积极，不知为何，作为一个集体文明，我们却聚集在一起，正在全球范围内毁灭自然。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And therein lies the paradox. How did this happen?</span>
+                <span class="zh">悖论就在这里。这是怎么发生的？</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">How did a group of individuals that all love nature somehow create a civilization, create an industrial economy that is out there, effectively planetary level assault on nature?</span>
+                <span class="zh">一群热爱自然的人，是如何创造出一个文明，创造出一个实际上在对自然进行行星级攻击的工业经济的？</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">Well, I think it actually stems from a broken mental model that we've kind of unconsciously adopted. And I'd like to start dissolving that right now.</span>
+                <span class="zh">我认为这实际上源于一种我们无意识中采用的错误的思维模型。我现在就想开始打破这种模型。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">Now, you can see the mental model with the X below it, and that is the one that I would like to say that we've accidentally adopted.</span>
+                <span class="zh">现在，你可以看到那个画了叉的思维模型，那就是我想说的，我们不经意间采纳的那个。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And that's a mental model that whenever you get economic wins, they are traded off against the ecology.</span>
+                <span class="zh">这种思维模型认为，每当你获得经济利益时，都是以牺牲生态为代价的。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And if you really care about the ecology and want to make that healthier, unfortunately, you're going to have to trade off economic wins, right? It's one or the other, kind of a balancing act.</span>
+                <span class="zh">如果你真的在乎生态并想让它更健康，不幸的是，你就必须牺牲经济利益，对吗？两者只能选其一，就像一种平衡博弈。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And depending on how much we care about the economy, or how much we care about the ecology at any given time, the pendulum swings one way, the scale swings one way, or it swings the other.</span>
+                <span class="zh">取决于我们在任何特定时期更看重经济还是生态，钟摆会向一方倾斜，天平向一方摆动，或者向另一方摆动。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And I'm going to tell you that, sure, that is a psychological position that you can take, but it's actually not one that is particularly physically true.</span>
+                <span class="zh">我想告诉你，当然，你可以持有这种心理立场，但在物理现实层面，这并不正确。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">I'm formally trained as a physicist. I do think about what is physically true, and what is actually much more true about the economy is the economy is not versus ecology. The economy is a subset of the ecology.</span>
+                <span class="zh">我接受过正规的物理学家培训。我确实会思考物理上的真相，而关于经济的真相是：经济并非生态的对立面。经济是生态的一个子集。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And maybe this is a new idea to you guys, but I can prove it to you very quickly. Actually, you could prove it to yourself, even just with the clothes on your body or the things immediately around you.</span>
+                <span class="zh">也许这对你们来说是个新观点，但我可以很快证明给你们看。实际上，你只需看看你身上的衣服或周围的物品，就能向自己证明。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">Because if you think about and look at everything the economy has produced, everything in the economy is either mined or grown, which means it comes directly from nature, no abstractions.</span>
+                <span class="zh">因为如果你审视经济产出的一切，会发现经济中的万物要么是开采出来的，要么是生长出来的，这意味着它们直接来自大自然，没有任何虚构。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">You guys might be wearing some cotton, obviously grown. You'll be sitting on a chair that's got some metal underneath -- that was mined. Everything in the economy is mined or grown, full stop.</span>
+                <span class="zh">你们可能穿着棉质衣服，那显然是生长出来的。你们坐的椅子下面有金属——那是开采出来的。经济中的一切都是开采或生长出来的，仅此而已。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And some of you guys might be thinking, 'Aren't we moving to a digital economy, a virtual economy?' Well, not really. Like, every line of code that is ever run runs on a substrate that was mined or grown. Every single service you've ever used is using server architectures that are mined or grown.</span>
+                <span class="zh">你们中有些人可能会想，“我们不是在向数字经济、虚拟经济转型吗？”其实不然。每一行运行的代码都承载在开采或生长出来的基质上。你使用的每一项服务都在使用开采或生长出来的服务器架构。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">When I say the entire economy is mined or grown, I mean it literally. There's literally nothing that doesn't come directly from nature.</span>
+                <span class="zh">当我说整个经济都是开采或生长出来的时，我是指字面意思。确实没有任何东西不是直接来自大自然。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And to the extent that you damage the ecology, you actually start to create problems for the economy. And this is what we're experiencing right now.</span>
+                <span class="zh">你在多大程度上破坏生态，你就在多大程度上开始为经济制造问题。这就是我们现在正在经历的。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And if you think about it in this balancing-act-type way, you're going to miss the right way to actually fix these problems. Now, let's talk about exactly how much we are mining and growing.</span>
+                <span class="zh">如果你继续用这种“平衡博弈”的方式思考，你就会错过真正解决这些问题的正确途径。现在，让我们谈谈我们究竟在进行多少开采和种植。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">This graph actually kind of tracks 50 years of how much extraction we've been taking every single year from the planet. At this point in history, it's over 90 billion tonnes per year. It comes out to about 11.5 tonnes per person per year.</span>
+                <span class="zh">这张图表追踪了 50 年间我们每年从地球提取的资源量。在历史的这一时刻，每年提取量已超过 900 亿吨。平均每人每年大约 11.5 吨。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And if you guys feel like you don't do that much, well, I'll shock you to say that 11.5 is the average in Asia, but Europe is about two x that, and America is three x that. Yay.</span>
+                <span class="zh">如果你觉得你没用这么多，那么告诉你这个数据可能会吓到你：11.5 吨是亚洲的平均水平，但欧洲大约是其两倍，而美国是三倍。耶。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">There's two billion people that live on less than five dollars a day doing substantially less than that -- that's why it all balances out. But this is exactly how much we're mining and exactly how much we're growing.</span>
+                <span class="zh">全球有 20 亿人每天生活费不足 5 美元，他们做的比这少得多——这就是平均值平衡后的结果。这就是我们采矿和种植的确切数量。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">Now, in the process of mining and growing this much, and using it to power everything in the economy -- because, like I said, literally everything in the economy is mined or grown -- we've been using really old industrial ideas and industrial processes.</span>
+                <span class="zh">在开采和种植这么多资源，并以此驱动经济的过程中——正如我所说的，经济中的一切确实都是开采或种植出来的——我们一直沿用非常陈旧的工业理念和工艺。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">Most of how we're growing today was invented about 50 years ago. Most of the ways that we've been mining, refining metals, all that sort of thing, were invented about 100 years ago, 150 years ago. These are not technologies that we've updated recently.</span>
+                <span class="zh">我们今天大部分的种植方式是大约 50 年前发明的。大部分开采、金属冶炼等方式，则是大约 100 年前、150 年前发明的。这些并不是我们最近更新的技术。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And with the arrival of new robotic and AI tools, I think it's the right time to go ask new questions about whether we could be mining and growing differently, in a way that starts to honor this idea that the economy is a subset of the ecology.</span>
+                <span class="zh">随着新型机器人和人工智能工具的出现，我认为现在是时候提出新问题了：我们是否可以用不同的方式进行开采和种植，从而开始尊重“经济是生态的一个子集”这一理念。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">Now, this is where it overlaps into my world, because my entire career has been built off of doing new inventions and robotics, artificial intelligence, advanced algorithms.</span>
+                <span class="zh">这就是它与我的领域重叠的地方，因为我的整个职业生涯都建立在机器人、人工智能和高级算法的创新上。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And I've shipped everything from Microsoft Office -- (Laughter) sorry about that -- you know, to web search -- I think that one was fine -- to self-driving cars.</span>
+                <span class="zh">从 Microsoft Office——（笑声）很抱歉——到网络搜索——我觉得那个还不错——再到自动驾驶汽车。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">So I've worked on relatively sophisticated things, and given that, I have an interesting background, perhaps, to be able to go look at these problems and see if we can take a different swing at them. And I'm going to share a number of examples with you today.</span>
+                <span class="zh">我曾研究过相对复杂的事物，鉴于此，我可能有一个有趣的背景，能够审视这些问题，看看我们是否能采取不同的方式去应对。今天我将与你们分享几个例子。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">Now, these examples fall into three major shifts -- remember, everything's mining or growing -- and they're represented by these three images here.</span>
+                <span class="zh">这些例子可以归纳为这里三张图片所代表的三大转变——记住，一切都是开采或种植。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">So on the left-hand side, we have a bunch of mined materials, and what we need to be doing is we need to figure out more and more ecological ways to be able to go mine materials and get the most of the ores that we extract so we do the least disturbance of earth and watersheds in the process of mining.</span>
+                <span class="zh">在左边，我们有一堆开采出来的材料，我们需要做的是寻找更生态的开采方式，并从提取的矿石中获得最大价值，从而在开采过程中对土地和流域造成最小的干扰。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">In addition, what is even better than mining more ecologically and mining less is to not mine at all. And to the extent that we're able to go close the loop through really skillful mechanical or chemical recycling, we can have a larger and larger proportion of the feedstock for industry move over to closed-loop materials, as opposed to virginally extracted materials.</span>
+                <span class="zh">此外，比更生态地开采和减少开采更好的是完全不开采。在很大程度上，如果我们能通过精湛的机械或化学回收来实现闭环，我们就能让工业原料中越来越多的比例转向闭环材料，而不是原始提取的材料。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">The second major shift has to do with the way that we grow. A lot of the way that we've been growing currently is very unsustainable. It basically is damaging soil function. And little by little, we've been kind of wearing down topsoil in agricultural lands all across the world.</span>
+                <span class="zh">第二个主要转变与我们的种植方式有关。我们目前的大部分种植方式都是不可持续的。它基本上是在破坏土壤功能。渐渐地，我们一直在磨损世界各地农田的表层土壤。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And Gabe Brown is pictured here. He's a friend who has taught me a huge amount about regenerative agriculture, and I've really learned from him that if you invest in soil function, you can actually make it easier to grow, cheaper to grow, a higher margin to grow every single year, and do so in a way that is regenerating soil function, giving more services to biodiversity, and even healing the hydrological function of those soils.</span>
+                <span class="zh">这是 Gabe Brown 的照片。他是一位朋友，教给了我大量关于再生农业的知识。我从他那里学到，如果你投资于土壤功能，实际上可以使种植变得更简单、更低廉、利润率更高，并以一种再生土壤功能、为生物多样性提供更多服务，甚至修复土壤水文功能的方式来实现。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And lastly, we need to be thinking about large-scale repair, because we've been at the Industrial Revolution for a couple hundred years now, and there's a lot of landscapes that we've heavily degraded. And if we are serious about the task of renewing the ecology in order to support a vibrant economy going forward, then we're going to need better tools for large-scale repair.</span>
+                <span class="zh">最后，我们需要考虑大规模修复，因为工业革命已经进行了几百年，许多景观已经严重退化。如果我们认真对待更新生态的任务，以支持未来的活力经济，那么我们将需要更好的大规模修复工具。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">So let's jump into all three of these. So what's pictured here is a company I have the privilege to work with. And they are a great example of moving closer to that closed-loop world.</span>
+                <span class="zh">让我们深入探讨这三点。这里展示的是我有幸合作的一家公司。他们是向闭环世界迈进的一个绝佳例子。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">So what you’re seeing here is actually an image from inside the largest lithium NMC battery recycling plant in North America. And this is an advanced form of chemical recycling that is able to go bring all of these used battery materials, because most lithium batteries kind of have a 10-year life; they do n't go too many years beyond that.</span>
+                <span class="zh">你在这里看到的实际上是北美最大的锂 NMC 电池回收厂内部的景象。这是一种先进的化学回收形式，能够回收所有这些旧电池材料，因为大多数锂电池的寿命大约为 10 年。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And after that's the case, you know, you can't use it in the car, or you can't use it in the consumer electronics device anymore. You want to be able to recover those materials. The process that they do here is about two times cheaper than the next closest process, and is able to return the material to complete virgin quality. It's better than the stuff that you would have been able to mine out of the ground in the first place.</span>
+                <span class="zh">在那之后，你就不能再在汽车或消费电子设备中使用它了。你希望能回收这些材料。他们这里的工艺比次优工艺便宜约两倍，且能使材料恢复到原始品质，甚至比最初开采出来的还要好。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And if we get really skillful about closing these loops, what's great is the car battery doesn't just evaporate and disappear. It's a relatively large object that you can go handle, and you can do a reverse logistics supply chain and pull these things together.</span>
+                <span class="zh">如果我们能熟练地实现这些闭环，汽车电池就不会凭空消失。它是一个可以处理的庞大物体，你可以通过逆向物流供应链把这些整合起来。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And whether it's robotics and AI to do advanced mechanical recycling -- or, in this case, advanced chemical recycling -- then there are really skillful ways, with our new technologies, to be able to go close the loop and make it so that a higher and higher fraction comes from a post-consumer or post-industrial waste stream, as opposed to from the ground.</span>
+                <span class="zh">无论是利用机器人进行机械回收还是化学回收，通过新技术，都有非常精湛的方法来实现闭环，并使越来越多的原料来自消费后或工业废物流。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">Now, moving over into the regenerative growing side, we're actually at a really compelling point in history, because there’s a mini renaissance in regenerative agriculture that's happening right now, with different farmers around the world discovering the benefits of agroforestry, intercropping, you know, no-till agriculture and a lot of other practices that really help to establish healthy soil function and a healthy soil microbiome.</span>
+                <span class="zh">现在，转向再生种植方面，我们正处于一个引人注目的时刻，因为再生农业正在兴起一场微型复兴，世界各地的农民都在发现农林业、间作、免耕农业等做法的好处。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And what you're actually seeing on the left-hand side is a new technology, which also uses machine learning to be able to go disambiguate. It's a new form of Raman spectroscopy that allows folks to be able to listen to the soils in this really skillful way.</span>
+                <span class="zh">你在左边看到的实际上是一项利用机器学习的新技术。这是一种新型的拉曼光谱技术，让人们能够以这种精湛的方式“倾听”土壤。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">So effectively, they're able to go and measure all these compelling compounds from the soil, so they're able to have the soil speak to them in ways that the soil can basically tell them, “Hey, here’s the next couple of things that you should do to make me healthier.” Instead of it kind of being a black box that needs to get interpreted, now farmers can have a direct relationship with their soils and be really skillful in the management toward greater and greater health, fewer inputs and higher margins every single year.</span>
+                <span class="zh">他们实际上能够测量土壤中所有这些化合物，让土壤能与他们交流并告诉他们如何使其更健康。土壤不再是一个黑匣子，农民可以与土壤建立直接联系并进行科学管理。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">Moving on into other ways that artificial intelligence and machine learning might be really useful for agriculture, what you see pictured here is the development of corn or maize. And it was an Indigenous project that happened over the course of hundreds of years. And they started with, basically, an inedible bit of grass, because corn is actually a type of grass.</span>
+                <span class="zh">继续讨论 AI 在农业中的应用，这里展示的是玉米的发展。这是一个持续了数百年的原住民项目，他们最初是从一种不可食用的草开始培育的。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And by selective breeding over generations and generations, they went through lots of different varieties, until we got to the 'lots of calories per grow cycle' version of corn that is now feeding a huge percentage of the calories around the world. Now, this was an Indigenous activity that happened over hundreds of years, and I'm really thankful for it, because most of the foods that we eat today were selectively bred to be as large and healthy and nutritious as we experience them.</span>
+                <span class="zh">通过世世代代的选择性育种，培育出了高产玉米。这是一个持续了数百年的原住民活动，我对此深表感激，因为今天的大多数食物都是这样选育出来的。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">But using artificial intelligence and machine learning, we've been working with a company that has been able to rapidly speed up this process, and not through genetic modification. What they do is they're able to take the sequence information from all the existing commercial crops, plus a bunch of native varietals that are not in current circulation, and work out what the different gene functions do, and then map out exactly the crossbreeding pathway in order to go get the desired traits.</span>
+                <span class="zh">但通过 AI，我们与一家公司合作，在不通过转基因的情况下快速加速了这一过程。他们通过分析作物序列信息和原始品种，精确绘制出杂交路径以获得所需性状。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">So what we have here is adaptive sugar cane, which dramatically reduces the amount of deforestation required to get to the yield level that you want. You also have heat-resistant tomatoes that are able to grow in way hotter, way drier conditions, which is really important, because we're going to go through at least a 50-year period where we're going to be destabilizing a lot of the farmlands of the Earth as the climate destabilizes, whether that's hotter or colder, wetter, drier. It's all going to happen, and being able to have seed stock that is ready for that challenge is really powerful.</span>
+                <span class="zh">例如自适应甘蔗减少了砍伐，耐热番茄能在极端条件下生长。这非常重要，因为气候不稳定将导致未来 50 年农田动荡，拥有能应对挑战的种子非常关键。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And lastly, a cotton that basically is drought-tolerant as well, requires a fraction of the water, one-tenth the water, and much less pesticide and fertilizer input. And all of these things are fantastic for the planet, but they're also fantastic for the future of us having viable food and materials in a destabilized, growing environment.</span>
+                <span class="zh">还有一种耐旱棉花，仅需十分之一的水且投入更少。这些对地球和人类在不稳定环境中的未来都至关重要。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">Lastly, let's get on to scalable restoration. And what you're seeing here is an image from the company Chloris Geospatial. And it is, of course, of the Amazon basin. But what's really compelling about this company is that they've done really deep work on sensor fusion across a bunch of satellite feeds, and they also paired that with over a decade in the jungles, meter by meter, doing ground-truthing data, to be able to go really verify how much terrestrial biomass is associated with signals that can be detected from satellites, via remote sensing.</span>
+                <span class="zh">最后谈谈可扩展修复。这是 Chloris Geospatial 公司的图像。他们通过卫星数据融合和十多年的实地数据，验证了卫星信号与陆地生物量之间的关联。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And given this, they've been able to make the most accurate, both historical and current assessment of aboveground biomass on planet Earth. And the data stretches all the way back to the beginning of the 21st century, so over 20 years of data on that front. And that really allows us to see which landscapes we're hurting, which landscapes are recovering, and if people are developing restoration projects or carbon projects, this is a fantastic way to go stay on top of how those are going.</span>
+                <span class="zh">因此，他们能对地球生物量进行最准确的历史和当前评估，数据跨度超过 20 年。这让我们能看到哪些景观在受损或恢复，并掌握修复项目的进展。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">Now, this is great technology and also uses really advanced algorithms and allows the things that I've been talking about. But in some ways, it's a little bit passive. This doesn't restore the forest itself. This doesn't restore the grassland itself. This just helps people monitor the changing of that.</span>
+                <span class="zh">虽然这项技术非常先进，但某种程度上它是被动的，它只是帮助人们监测变化，而不是直接修复森林或草原。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">But what if -- going back to this triangle for a moment -- we were to get more ambitious and we were to say, 'Let's challenge this linkage between the industrial machines that run our economy and nature, and instead of it having to be an accidental relationship of damage, what would it look like if it was an intentional relationship of active repair?' And I'm going to show you that right now with my last two examples.</span>
+                <span class="zh">但如果我们要更有野心呢？挑战经济机器与自然之间的联系，让这种关系不再是意外的破坏，而是有意识的主动修复越。接下来的两个例子将展示这一点。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">This one's a short video. You're going to hear these little ticks, and every one of those ticks is a mangrove seed being planted. The pace of these ticks is basically planting about 100 mangroves per minute from one drone.</span>
+                <span class="zh">这是一个短视频，每一个滴答声都代表一颗被种下的红树林种子，一架无人机每分钟能种植约 100 棵红树。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">Video : ( Frequent ticks over music ) Tom Chi : And that's what it looks like when we start planting.</span>
+                <span class="zh">视频：（音乐中频繁的滴答声）Tom Chi：这就是我们开始种植时的样子。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And then, two months later, you see, actually, we have over 90 percent that get to germination. And 14 months later, you can see the landscape is fully established, over 85 percent full establishing of the mangroves that were planted.</span>
+                <span class="zh">两个月后，超过 90% 的种子发芽；14 个月后，超过 85% 的红树林已经成活并建立了景观。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">Now, the scale of this technology and the scale that it's capable of is incredible. Just four people are able to go plant over 80 hectares of land, representing 120,000 mangroves being planted, and over 100,000 being established in one day. When you get to robotic scale on things, all of a sudden, then human action, human intention -- and if we have good intentions, we can really multiply that in ways that can completely rewrite our landscapes.</span>
+                <span class="zh">这项技术的规模非常惊人，四个人一天就能种植 80 公顷。当达到机器人规模时，人类的良好意图可以被无限放大，从而重写景观。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And I've worked with this company for about a decade at this point, and I got really inspired by them, you know, because they have not just restored mangroves, but they've restored 20 different terrestrial ecosystems on four different continents -- dry land, inland, mountainous, you know, nearshore, all these sorts of things.</span>
+                <span class="zh">我与这家公司合作了十年，他们已在四大洲修复了 20 个不同的陆地生态系统，包括旱地、山区和近岸地区。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And I got inspired, like, 'Could we also do this below the water?' And I'm going to show you something that I founded and was the original electrical engineer for. And this is this is the Reefgen robot, which is basically its own kind of planting drone. Oh, it's already going to do some planting things, that's fun.</span>
+                <span class="zh">我也在想，水下是否也能这样做？这是我创立并担任原始工程师的 Reefgen 机器人，它也是一种种植无人机。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And this robot line is the first in the world to plant live corals back into a coral reef. It's the first in the world to plant live seagrasses back into seagrass meadows. And it can also plant them in seed form as well. And this robot, you know, has been able to plant 10,000 seagrass seeds in a single day, which covers an entire underwater acre with one robot in one day.</span>
+                <span class="zh">它是世界上首个能将活珊瑚和海草种回海洋的机器人。一个机器人一天能种下 10,000 颗海草种子，覆盖整整一英亩。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And the other thing that we did is we wanted to make sure that this robot was affordable enough that we could make a bunch of them, right? Because when I went around and I talked to people about the underwater robot that I was going to go build to restore these ecosystems, they're like, 'You should budget, like, two million dollars for the robot. If you spent less, it's probably not going to do anything interesting.' And I remember thinking more like 5,000 dollars, and we’re not quite there, but this is more like 10,000 dollars.</span>
+                <span class="zh">我们还想确保机器人足够便宜。别人建议预算两百万美元，但我当时想的是 5,000 美元左右，虽然还没达到，但现在的成本约为 10,000 美元。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And in the grand scheme of things, it's way, way less than two million. And the whole point is you want this to be an accessible technology to all the communities that have nearshore ecosystems to restore, whether they be coral, whether they be seagrasses. You want something like this to be also scalable from the CapEx perspective, right? Like, a single billionaire could spend 50 million dollars and have a fleet of 10,000 of these, and that is actually meaningful scale in terms of ocean restoration of all different types.</span>
+                <span class="zh">这远低于两百万美元，重点是让近岸修复技术对所有社区都触手可及。从投资角度看，这具有可扩展性，能实现真正有意义的海洋修复规模。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">I'll show you a little bit more here. So right here is a stake, because this is actually not a seed-planting end effector. That's a seedling-planting end effector, because there's actually two ways to plant seagrasses. You can plant it from seed, but then, there's other types of seagrasses that want to be planted as a sapling.</span>
+                <span class="zh">这里展示的是幼苗种植执行器。种植海草有两种方式：播种或作为幼苗（树苗）种植。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">And they want to grow rhizomatically, so they send out these little rhizomes laterally, and then the grasses grow up from the lateral rhizomes that are heading out. And this is basically a stake that we put the seagrass seedlings into, and then that feeds in through a tube into a hopper, and basically, bit by bit, this current layout is able to go and plant about half an acre of seedlings per day with just one robot. And our next version of it is going to be able to do an acre to an acre and a half in a day, per robot.</span>
+                <span class="zh">海草通过根茎横向生长。我们目前的一个机器人每天能种下约半英亩幼苗，下一版本将能达到一到一英亩半。</span>
+            </div>
+
+            <div class="transcript-pair">
+                <span class="en">So we are really kind of moving into this space where, by really digging into that mental model in a different way, instead of economy versus ecology, we start taking the best tools that we're using in the current economy, and robotics and AI, and intentionally using them to support ecology so that we're able to go build both a healthy planet and a healthy economy for the future. (Cheers and applause) Thanks so much. Thank you.</span>
+                <span class="zh">所以我们正迈入新领域，不再将经济与生态对立，而是利用 AI 和机器人等现代工具支持生态，从而为未来建立健康的星球和经济。非常感谢！</span>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        FULL TRANSCRIPT • 2026 NATURE & TECHNOLOGY ARCHIVE
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
