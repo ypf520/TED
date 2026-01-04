@@ -40,7 +40,6 @@
             margin: 40px 0;
         }
 
-        /* 顶部布局：标题与按钮对齐 */
         .header-flex {
             display: flex;
             justify-content: space-between;
@@ -56,7 +55,6 @@
         h1 { font-size: 2.2rem; color: var(--text-dark); margin: 0; letter-spacing: -1px; }
         header p { color: var(--text-muted); margin-top: 8px; font-size: 1rem; }
 
-        /* 纯圆形排序按钮 */
         .sort-trigger {
             width: 48px;
             height: 48px;
@@ -156,11 +154,11 @@
             </a>
 
             <a href="https://ypf520.github.io/TED/ted2.html" class="article-card" data-order="2">
-                <div class="icon-circle">🌌</div>
+                <div class="icon-circle">🤖</div>
                 <div class="card-body">
                     <span class="vol-label" style="background: #fef3c7; color: #d97706;">VOL. 02</span>
-                    <h3>How big is the Universe?</h3>
-                    <p>跨越光年的旅程，从原子到可观测宇宙的终极边界探索。</p>
+                    <h3>The Army of Autonomous Robots Restoring Nature</h3>
+                    <p>打破经济与生态的对立模型，看AI与机器人军团如何高效修复受损的地球景观。</p>
                 </div>
                 <div class="arrow">→</div>
             </a>
@@ -183,10 +181,9 @@
     </div>
 
     <script>
-        // 初始化图标库
         lucide.createIcons();
 
-        let descending = true; // 默认新文章在上
+        let descending = true;
 
         function toggleSort() {
             const list = document.getElementById('articleList');
@@ -194,14 +191,12 @@
             
             descending = !descending;
 
-            // 根据 data-order 排序
             cards.sort((a, b) => {
                 const orderA = parseInt(a.getAttribute('data-order'));
                 const orderB = parseInt(b.getAttribute('data-order'));
                 return descending ? orderB - orderA : orderA - orderB;
             });
 
-            // 重新插入 DOM（带有一个简单的平滑过渡感）
             cards.forEach(card => {
                 card.style.opacity = '0';
                 setTimeout(() => {
