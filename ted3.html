@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>极简美学导航门户</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --text-color: #ffffff;
+            --accent-color: #ba4aff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            /* 现代多重渐变背景实现 */
+            background-color: #0f0c29;
+            background-image: 
+                linear-gradient(322deg, #ba4aff, rgba(186, 74, 255, 0) 70%),
+                linear-gradient(178deg, #008aff, rgba(0, 138, 255, 0) 70%),
+                linear-gradient(24deg, #00ffc6, rgba(0, 255, 198, 0) 35%);
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text-color);
+            padding: 40px 20px;
+        }
+
+        /* 搜索栏容器 */
+       .search-container {
+            width: 100%;
+            max-width: 650px;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 10;
+        }
+
+       .search-box {
+            display: flex;
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 5px 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+       .search-box:focus-within {
+            transform: scale(1.02);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+       .engine-select {
+            background: transparent;
+            border: none;
+            color: white;
+            padding-right: 10px;
+            cursor: pointer;
+            outline: none;
+            font-size: 14px;
+        }
+
+       .engine-select option {
+            background: #24243e;
+        }
+
+       .search-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: white;
+            font-size: 16px;
+            padding: 12px;
+        }
+
+       .search-btn {
+            background: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        /* 便当盒布局 */
+       .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        /* 玻璃拟态卡片 */
+       .nav-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 24px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+       .nav-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* 特殊尺寸卡片 (Bento Grid 特性) */
+       .card-large {
+            grid-row: span 2;
+        }
+
+       .card-wide {
+            grid-column: span 2;
+        }
+
+       .category-title {
+            font-size: 18px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
+
+       .link-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+       .link-item {
+            padding: 6px 14px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            font-size: 14px;
+            transition: background 0.3s;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+       .link-item:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+           .card-wide { grid-column: span 1; }
+           .card-large { grid-row: span 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="search-container">
+        <form id="searchForm" class="search-box">
+            <select id="engineSelect" class="engine-select">
+                <option value="https://www.baidu.com/s?wd=">百度</option>
+                <option value="https://www.google.com/search?q=">谷歌</option>
+                <option value="https://github.com/search?q=">GitHub</option>
+                <option value="https://search.bilibili.com/all?keyword=">B站</option>
+            </select>
+            <input type="text" id="searchInput" class="search-input" placeholder="输入搜索内容..." autocomplete="off">
+            <button type="submit" class="search-btn">
+                <i data-lucide="search"></i>
+            </button>
+        </form>
+    </div>
+
+    <div class="bento-grid">
+        <div class="nav-card card-large">
+            <div class="category-title">
+                <i data-lucide="code-2"></i> 开发者工具
+            </div>
+            <div class="link-group">
+                <a href="https://github.com" class="link-item">GitHub</a>
+                <a href="https://stackoverflow.com" class="link-item">StackOverflow</a>
+                <a href="https://juejin.cn" class="link-item">掘金</a>
+                <a href="https://v2ex.com" class="link-item">V2EX</a>
+                <a href="https://developer.mozilla.org" class="link-item">MDN</a>
+                <a href="https://npm.js.com" class="link-item">NPM</a>
+                <a href="https://codepen.io" class="link-item">CodePen</a>
+                <a href="https://leetcode.cn" class="link-item">LeetCode</a>
+            </div>
+        </div>
+
+        <div class="nav-card">
+            <div class="category-title">
+                <i data-lucide="share-2"></i> 社交资讯
+            </div>
+            <div class="link-group">
+                <a href="https://weibo.com" class="link-item">微博</a>
+                <a href="https://zhihu.com" class="link-item">知乎</a>
+                <a href="https://twitter.com" class="link-item">X (Twitter)</a>
+                <a href="https://v.douyin.com" class="link-item">抖音</a>
+            </div>
+        </div>
+
+        <div class="nav-card card-wide">
+            <div class="category-title">
+                <i data-lucide="palette"></i> 设计美学与创意
+            </div>
+            <div class="link-group">
+                <a href="https://dribbble.com" class="link-item">Dribbble</a>
+                <a href="https://behance.net" class="link-item">Behance</a>
+                <a href="https://figma.com" class="link-item">Figma</a>
+                <a href="https://unsplash.com" class="link-item">Unsplash</a>
+                <a href="https://huaban.com" class="link-item">花瓣网</a>
+                <a href="https://zcool.com.cn" class="link-item">站酷</a>
+            </div>
+        </div>
+
+        <div class="nav-card">
+            <div class="category-title">
+                <i data-lucide="play-circle"></i> 视频娱乐
+            </div>
+            <div class="link-group">
+                <a href="https://bilibili.com" class="link-item">Bilibili</a>
+                <a href="https://youtube.com" class="link-item">YouTube</a>
+                <a href="https://v.qq.com" class="link-item">腾讯视频</a>
+                <a href="https://netflix.com" class="link-item">Netflix</a>
+            </div>
+        </div>
+
+        <div class="nav-card">
+            <div class="category-title">
+                <i data-lucide="zap"></i> 效率工具
+            </div>
+            <div class="link-group">
+                <a href="https://notion.so" class="link-item">Notion</a>
+                <a href="https://canva.com" class="link-item">Canva</a>
+                <a href="https://deepl.com" class="link-item">DeepL</a>
+                <a href="https://chatgpt.com" class="link-item">ChatGPT</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 初始化 Lucide 图标
+        lucide.createIcons();
+
+        // 搜索重定向逻辑
+        document.getElementById('searchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const engine = document.getElementById('engineSelect').value;
+            const query = document.getElementById('searchInput').value;
+            if (query.trim()!== "") {
+                window.location.href = engine + encodeURIComponent(query);
+            }
+        });
+    </script>
+</body>
+</html>
